@@ -84,16 +84,16 @@ const Item = ({ item }: { item: Product }) => {
         `ten sp la: ${item.name}, gia sp la: ${item.cost}`
       )
     }}>
-        <Image
-          style={styles.imageList}
-          source={{
-            uri: `${item.url}`,
-          }}
-        />
-        <View style={styles.inforProduct}>
-          <Text style={{ fontSize: 16 }}>{item.name}</Text>
-          <Text style={{ color: 'red', fontWeight: 'bold', fontSize: 15, marginTop: 5 }}>{item.cost}</Text>
-        </View>
+      <Image
+        style={styles.imageList}
+        source={{
+          uri: `${item.url}`,
+        }}
+      />
+      <View style={styles.inforProduct}>
+        <Text style={{ fontSize: 16 }}>{item.name}</Text>
+        <Text style={{ color: 'red', fontWeight: 'bold', fontSize: 15, marginTop: 5 }}>{item.cost}</Text>
+      </View>
     </TouchableOpacity>
 
   )
@@ -108,7 +108,6 @@ const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        numColumns={2}
         keyExtractor={(item) => item.name}
         data={DATA}
         renderItem={renderItem}
@@ -120,27 +119,28 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    paddingHorizontal:5
   },
   itemList: {
     flex: 1,
     backgroundColor: 'white',
     borderWidth: 0.3,
     borderColor: 'black',
-    margin: 10,
-    height: height / 2.4,
+    margin: 15,
+    height: height / 6,
     borderRadius: 10,
-    overflow: 'hidden'
+    flexDirection: 'row'
   },
   imageList: {
     flex: 2,
     resizeMode: 'contain'
   },
   inforProduct: {
-    flex: 1,
+    flex: 5,
     alignItems: 'flex-start',
     justifyContent: 'center',
-    paddingHorizontal: 20
+    paddingHorizontal: 30
   }
 });
 
